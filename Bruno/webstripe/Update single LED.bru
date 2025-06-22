@@ -1,0 +1,30 @@
+meta {
+  name: Update single LED
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{baseUrl}}/leds/{{led_id}}
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "color": [150,32,100]
+  }
+}
+
+body:form-urlencoded {
+  color: red
+  color: blue
+}
+
+body:multipart-form {
+  color: red
+}
+
+vars:pre-request {
+  led_id: 1
+}
